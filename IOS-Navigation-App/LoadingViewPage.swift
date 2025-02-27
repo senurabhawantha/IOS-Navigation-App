@@ -18,7 +18,6 @@ struct LoadingViewPage: View {
                 
                 VStack {
                     Spacer()
-
                     // Logo with subtle bounce animation
                     Image("nibm_icon") // Ensure the asset is available
                         .resizable()
@@ -41,14 +40,14 @@ struct LoadingViewPage: View {
                     .animation(Animation.easeIn(duration: 1.5), value: isAnimating)
                     .padding(.bottom, 40)
                     
-                    // Animated Loading Indicator
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-                        .scaleEffect(1.5)
-                        .padding(.bottom, 30)
-                        .opacity(isAnimating ? 1 : 0.5)
-                        .animation(Animation.spring(response: 1, dampingFraction: 0.6, blendDuration: 1).repeatForever(autoreverses: true), value: isAnimating)
-                    
+                    // Figure with Glowing Effect (No Animation)
+                    Image(systemName: "figure.walk.circle")
+                        .font(.system(size: 50))
+                        .foregroundColor(.white)
+                        .shadow(color: Color.white.opacity(0.8), radius: 10, x: 0, y: 0) // Keeps glowing effect
+                        .padding(.bottom, 20)
+
+
                     // Get Started Button with glowing effect
                     NavigationLink(destination: SignInView()) {
                         HStack {

@@ -32,7 +32,7 @@ struct LoadingViewPage: View {
                         Text("NIBM")
                             .font(.system(size: 75, weight: .bold, design: .rounded))
                             .foregroundColor(.blue)
-                        Text("Navigator App")
+                        Text("NAVIGATOR APP")
                             .font(.system(size: 32, weight: .medium, design: .rounded))
                             .foregroundColor(.white.opacity(0.9))
                     }

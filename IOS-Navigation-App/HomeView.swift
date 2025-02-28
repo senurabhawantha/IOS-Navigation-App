@@ -1,58 +1,65 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var showCrowdLevelView: Bool = false
+    
     var body: some View {
-        VStack {
-            // Welcome Text
-            Text("Welcome to NIBM")
-                .font(.title2)
-                .fontWeight(.bold)
-                .padding(.top, 10)
+        NavigationView {
+            VStack {
+                // Welcome Text
+                Text("Welcome to NIBM")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .padding(.top, 10)
 
-            // Search Bar
-            HStack {
-                TextField("Search", text: .constant(""))
-                    .padding(10)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(10)
+                // Search Bar
+                HStack {
+                    TextField("Search", text: .constant(""))
+                        .padding(10)
+                        .background(Color(.systemGray6))
+                        .cornerRadius(10)
 
-                Image(systemName: "mic.fill")
-                    .foregroundColor(.blue)
-                    .padding(.trailing, 10)
+                    Image(systemName: "mic.fill")
+                        .foregroundColor(.blue)
+                        .padding(.trailing, 10)
+                }
+                .padding(.horizontal)
+                .padding(.bottom, 20) // Added space between search bar and grid
+
+                // Library Image
+                Image("Image1")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 150)
+                    .padding(.bottom, 20)
+
+                // Grid Layout for Options
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing:25) {
+                    NavigationLink(destination: CrowdLevelView()) {
+                        HomeButton(icon: "person.2.circle", label: "CROWD")
+                    }
+                    HomeButton(icon: "location", label: "MAP")
+                    HomeButton(icon: "calendar", label: "EVENTS")
+                    HomeButton(icon: "pencil.and.list.clipboard", label: "SCHEDULE")
+                    HomeButton(icon: "graduationcap", label: "COMMUNITY")
+                    HomeButton(icon: "person.crop.circle", label: "PROFILE")
+                }
+                .padding(.horizontal)
+
+                Spacer()
+
+                // Bottom Navigation Bar
+                HStack {
+                    BottomTabItem(icon: "house.fill", label: "Home", isActive: true)
+                    BottomTabItem(icon: "map", label: "Map")
+                    BottomTabItem(icon: "person.3.sequence.fill", label: "Community")
+                    BottomTabItem(icon: "person.crop.circle.badge.checkmark", label: "Profile")
+                }
+                .padding()
+                .background(Color.white)
+                .shadow(radius: 5)
             }
-            .padding(.horizontal)
-            .padding(.bottom, 20) // Added space between search bar and grid
-
-            // Library Image
-            Image("Image1")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 150)
-                .padding(.bottom, 20)
-
-            // Grid Layout for Options
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing:25) {
-                HomeButton(icon: "person.2.circle", label: "CROWD")
-                HomeButton(icon: "location", label: "MAP")
-                HomeButton(icon: "calendar", label: "EVENTS")
-                HomeButton(icon: "pencil.and.list.clipboard", label: "SCHEDULE")
-                HomeButton(icon: "graduationcap", label: "COMMUNITY")
-                HomeButton(icon: "person.crop.circle", label: "PROFILE")
-            }
-            .padding(.horizontal)
-
-            Spacer()
-
-            // Bottom Navigation Bar
-            HStack {
-                BottomTabItem(icon: "house.fill", label: "Home", isActive: true)
-                BottomTabItem(icon: "map", label: "Map")
-                BottomTabItem(icon: "person.3.sequence.fill", label: "Community")
-                BottomTabItem(icon: "person.crop.circle.badge.checkmark", label: "Profile")
-            }
-            .padding()
-            .background(Color.white)
-            .shadow(radius: 5)
+            .navigationBarHidden(true) // Hide the navigation bar
         }
     }
 }

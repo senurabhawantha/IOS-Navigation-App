@@ -25,12 +25,12 @@ struct StudentProfileView: View {
                     Button(action: {
                         // Handle back action
                     }) {
-                        Image(systemName: "chevron.left")
-                            .font(.title)
-                            .foregroundColor(.blue)
+//                        Image(systemName: "chevron.left")
+//                            .font(.title)
+//                            .foregroundColor(.blue)
                     }
                     Spacer()
-                    Text("Student Profile")
+                    Text("             Student Profile")
                         .font(.title3)
                         .fontWeight(.bold)
                     Spacer()

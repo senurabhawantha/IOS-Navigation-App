@@ -4,6 +4,7 @@ struct HomeView: View {
     @State private var showCrowdLevelView: Bool = false
     @State private var showMapView: Bool = false
     @State private var showEventView: Bool = false
+    @State private var showCommunityView: Bool = false
     
     var body: some View {
         NavigationView {
@@ -51,7 +52,11 @@ struct HomeView: View {
                         HomeButton(icon: "calendar", label: "EVENTS")
                     }
                     HomeButton(icon: "pencil.and.list.clipboard", label: "SCHEDULE")
-                    HomeButton(icon: "graduationcap", label: "COMMUNITY")
+                    Button(action: {
+                        self.showCommunityView = true
+                    }) {
+                        HomeButton(icon: "graduationcap", label: "COMMUNITY")
+                    }
                     HomeButton(icon: "person.crop.circle", label: "PROFILE")
                 }
                 .padding(.horizontal)
@@ -62,6 +67,11 @@ struct HomeView: View {
                 .hidden()
                 
                 NavigationLink(destination: EventView(), isActive: $showEventView) {
+                    EmptyView()
+                }
+                .hidden()
+                
+                NavigationLink(destination: CommunityView(), isActive: $showCommunityView) {
                     EmptyView()
                 }
                 .hidden()

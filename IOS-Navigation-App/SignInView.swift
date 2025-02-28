@@ -73,33 +73,34 @@ struct SignInView: View {
                                     .cornerRadius(8)
                             }
                             .padding(.horizontal)
+//                            
+//                            Text("Or")
+//                                .font(.subheadline)
+//                                .foregroundColor(.gray)
+//                                .padding()
                             
-                            Text("Or")
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                                .padding()
-                            
-                            // Sign-In with Apple Button
-                            Button(action: {
-                                // Handle sign-in with Apple action
-                            }) {
-                                HStack {
-                                    Image(systemName: "apple.logo") // Apple logo
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 20, height: 20) // Adjust size
-                                        .foregroundColor(.white) // Apple logo color
-                                    
-                                    Text("Continue with Apple")
-                                        .font(.headline)
-                                        .foregroundColor(.white)
-                                }
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color.black)
-                                .cornerRadius(8)
-                            }
-                            .padding(.horizontal)
+//                            // Sign-In with Apple Button
+//                            Button(action: {
+//                               
+//                                // Handle sign-in with Apple action
+//                            }) {
+//                                HStack {
+//                                    Image(systemName: "apple.logo") // Apple logo
+//                                        .resizable()
+//                                        .scaledToFit()
+//                                        .frame(width: 20, height: 20) // Adjust size
+//                                        .foregroundColor(.white) // Apple logo color
+//                                    
+//                                    Text("Continue with Apple")
+//                                        .font(.headline)
+//                                        .foregroundColor(.white)
+//                                }
+//                                .frame(maxWidth: .infinity)
+//                                .padding()
+//                                .background(Color.black)
+//                                .cornerRadius(8)
+//                            }
+//                            .padding(.horizontal)
                             
                             Button(action: {
                                 self.viewState = .signUp

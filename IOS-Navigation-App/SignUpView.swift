@@ -89,27 +89,27 @@ struct SignUpView: View {
                     }
                     .hidden()
                     
-                    // Or Text
-                    Text("Or")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                        .padding(5)
+//                    // Or Text
+//                    Text("Or")
+//                        .font(.subheadline)
+//                        .foregroundColor(.gray)
+//                        .padding(5)
                     
                     
-                    // Sign-Up Button
-                    Button(action: {
-                        // Handle sign-up action
-                    }) {
-                        Text("Continue with Apple")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.black)
-                            .cornerRadius(8)
-                    }
-                    .padding(.horizontal)
-                    
+//                    // Sign-Up Button
+//                    Button(action: {
+//                        // Handle sign-up action
+//                    }) {
+//                        Text("Continue with Apple")
+//                            .font(.headline)
+//                            .foregroundColor(.white)
+//                            .frame(maxWidth: .infinity)
+//                            .padding()
+//                            .background(Color.black)
+//                            .cornerRadius(8)
+//                    }
+//                    .padding(.horizontal)
+//                    
                     // Login Button
                     NavigationLink(destination: SignInView()) {
                         Text("Already have an account? Log In Now")

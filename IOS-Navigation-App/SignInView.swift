@@ -29,7 +29,7 @@ struct SignInView: View {
                                 
                                 TextField("Enter your email", text: $email)
                                     .padding()
-                                    .background(Color(.systemGray6))
+                                    .background(Color(.white))
                                     .cornerRadius(8)
                                     .keyboardType(.emailAddress)
                                     .autocapitalization(.none)
@@ -40,7 +40,7 @@ struct SignInView: View {
                                 
                                 SecureField("Enter your password", text: $password)
                                     .padding()
-                                    .background(Color(.systemGray6))
+                                    .background(Color(.white))
                                     .cornerRadius(8)
                             }
                             .padding(.horizontal)
@@ -53,7 +53,7 @@ struct SignInView: View {
                                 }) {
                                     Text("Forgotten Password?")
                                         .font(.footnote)
-                                        .foregroundColor(.blue)
+                                        .foregroundColor(.black)
                                 }
                                 .padding(.trailing, 20)
                             }
@@ -106,7 +106,7 @@ struct SignInView: View {
                             }) {
                                 Text("Don’t have an account? Sign up Now")
                                     .font(.footnote)
-                                    .foregroundColor(.blue)
+                                    .foregroundColor(.black)
                             }
                             .padding(.bottom)
                         }

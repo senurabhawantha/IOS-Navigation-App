@@ -28,7 +28,7 @@ struct SignUpView: View {
                                 .foregroundColor(.black)
                             TextField("Enter your Name", text: $name)
                                 .padding()
-                                .background(Color(.systemGray6))
+                                .background(Color(.white))
                                 .cornerRadius(8)
                         }
                         .padding(.horizontal)
@@ -40,7 +40,7 @@ struct SignUpView: View {
                                 .foregroundColor(.black)
                             TextField("Enter your Email", text: $email)
                                 .padding()
-                                .background(Color(.systemGray6))
+                                .background(Color(.white))
                                 .cornerRadius(8)
                                 .keyboardType(.emailAddress)
                                 .autocapitalization(.none)
@@ -54,7 +54,7 @@ struct SignUpView: View {
                                 .foregroundColor(.black)
                             SecureField("Enter your Password", text: $password)
                                 .padding()
-                                .background(Color(.systemGray6))
+                                .background(Color(.white))
                                 .cornerRadius(8)
                         }
                         .padding(.horizontal)
@@ -66,7 +66,7 @@ struct SignUpView: View {
                                 .foregroundColor(.black)
                             SecureField("Confirm your password", text: $confirmPassword)
                                 .padding()
-                                .background(Color(.systemGray6))
+                                .background(Color(.white))
                                 .cornerRadius(8)
                         }
                         .padding(.horizontal)
@@ -97,7 +97,7 @@ struct SignUpView: View {
                         NavigationLink(destination: SignInView()) {
                             Text("Already have an account? Log In Now")
                                 .font(.footnote)
-                                .foregroundColor(.blue)
+                                .foregroundColor(.black)
                         }
                     }
                     .padding(.vertical, 50)

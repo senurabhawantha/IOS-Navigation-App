@@ -7,12 +7,12 @@ struct EventView: View {
         VStack {
             // Back Button and Title
             HStack {
-                Button(action: {
-                    // Handle back action
-                }) {
-                    Text("Back")
-                        .foregroundColor(.blue)
-                }
+//                Button(action: {
+//                    // Handle back action
+//                }) {
+//                    Text("Back")
+//                        .foregroundColor(.blue)
+//                }
                 Spacer()
             }
             .padding(.horizontal)

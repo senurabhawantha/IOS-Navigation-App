@@ -5,12 +5,12 @@ struct MapView: View {
         VStack {
             // Back Button
             HStack {
-                Button(action: {
-                    // Handle back action
-                }) {
-                    Text("Back")
-                        .foregroundColor(.blue)
-                }
+//                Button(action: {
+//                    // Handle back action
+//                }) {
+//                    Text("Back")
+//                        .foregroundColor(.blue)
+//                }
                 Spacer()
             }
             .padding(.horizontal)

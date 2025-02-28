@@ -1,54 +1,55 @@
 import SwiftUI
 
 struct LoadingViewPage: View {
-    @State private var isAnimating = false
+    @State private var isPulsing = false
     
     var body: some View {
         NavigationView {
             ZStack {
-                // Animated Gradient Background
-                LinearGradient(gradient: Gradient(colors: [Color(red: 178/255, green: 255/255, blue: 252/255).opacity(0.8), Color(red: 178/255, green: 255/255, blue: 252/255).opacity(0.4)]),
-                               startPoint: isAnimating ? .topLeading : .bottomTrailing,
-                               endPoint: isAnimating ? .bottomTrailing : .topLeading)
+                // Background Color
+                Color(red: 72/255, green: 201/255, blue: 176/255) // Background color #48C9B0
                     .edgesIgnoringSafeArea(.all)
-                    .animation(Animation.spring(response: 2, dampingFraction: 0.5, blendDuration: 1).repeatForever(autoreverses: true), value: isAnimating)
-                    .onAppear {
-                        isAnimating.toggle()
-                    }
                 
                 VStack {
-                    Spacer()
-                    // Logo with subtle bounce animation
-                    Image("nibm_icon") // Ensure the asset is available
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 130, height: 130)
-                        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
-                        .scaleEffect(isAnimating ? 1.1 : 0.9)
-                        .animation(Animation.interpolatingSpring(stiffness: 100, damping: 5).repeatForever(autoreverses: true), value: isAnimating)
                     
-                    // App Title with animated fade-in effect
+                    
+                    // App Title at the top
                     VStack(spacing: 5) {
                         Text("NIBM")
                             .font(.system(size: 75, weight: .bold, design: .rounded))
                             .foregroundColor(.blue)
                         Text("NAVIGATOR APP")
                             .font(.system(size: 32, weight: .medium, design: .rounded))
-                            .foregroundColor(.black.opacity(25))
+                            .foregroundColor(.black.opacity(0.25))
                     }
-                    .opacity(isAnimating ? 1 : 0.6)
-                    .animation(Animation.easeIn(duration: 1.5), value: isAnimating)
-                    .padding(.bottom, 40)
+                    .padding(.top, 20) // Add some padding from the top
+                    .padding(.horizontal) // Optional: Add horizontal padding
                     
-                    // Figure with Glowing Effect (No Animation)
-                    Image(systemName: "figure.walk.circle")
-                        .font(.system(size: 50))
+                    
+                    
+                    // Logo in the middle of the page
+                    Image("nibm_icon") // Ensure the asset is available
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 130, height: 25)
+                        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
+                    
+                    // Pushes everything to the bottom
+                    
+                    // Figure with Glowing Effect centered
+                    Image(systemName: "iphone.gen1.badge.location")
+                        .font(.system(size: 75))
                         .foregroundColor(.red)
                         .shadow(color: Color.white.opacity(0.8), radius: 10, x: 0, y: 0) // Keeps glowing effect
+                        .scaleEffect(isPulsing ? 1.1 : 1.0)
+                        .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true), value: isPulsing)
+                        .onAppear {
+                            isPulsing.toggle()
+                        }
+                        .frame(maxWidth: .infinity, alignment: .center) // Center horizontally
                         .padding(.bottom, 20)
-
-
-                    // Get Started Button with glowing effect
+                    
+                    // Get Started Button
                     NavigationLink(destination: SignInView()) {
                         HStack {
                             Text("Get Started")
@@ -64,10 +65,9 @@ struct LoadingViewPage: View {
                         .shadow(color: Color.white.opacity(0.3), radius: 10, x: 0, y: 5)
                     }
                     .buttonStyle(PlainButtonStyle())
-                    Spacer()
                 }
             }
-            .navigationBarHidden(true)
+            .navigationBarHidden(true) // Hide the navigation bar
         }
     }
 }

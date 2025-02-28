@@ -37,11 +37,10 @@ struct HomeView: View {
                     .padding(.horizontal)
                     .padding(.bottom, 20)
 
-                    // Library Image
-                    Image("Image1")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 150)
+                    // Graduation Cap Icon
+                    Image(systemName: "iphone.gen1.badge.location")
+                        .font(.system(size: 75))
+                        .foregroundColor(.black)
                         .padding(.bottom, 20)
 
                     // Grid Layout for Options
@@ -93,7 +92,7 @@ struct HomeView: View {
 
                 Spacer()
             }
-            .background(Color(red: 178/255, green: 255/255, blue: 252/255)) // Mint Green background
+            .background(Color(red: 72/255, green: 201/255, blue: 176/255)) // Background color #48C9B0
             .navigationBarTitle("", displayMode: .inline) // Set title to empty to avoid showing any title
             .navigationBarHidden(true) // Ensure the navigation bar is hidden
         }

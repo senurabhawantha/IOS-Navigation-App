@@ -43,11 +43,13 @@ struct MapView: View {
             .cornerRadius(10)
             .padding(.horizontal)
 
+            Spacer()
+            
             // Map Image
-            Image("Image")
+            Image("Map1")
                 .resizable()
                 .scaledToFit()
-                .frame(height: 350)
+                .frame(height: 450)
                 .cornerRadius(15)
                 .padding(.horizontal)
 

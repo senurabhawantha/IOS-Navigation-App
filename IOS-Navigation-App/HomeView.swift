@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var showCrowdLevelView: Bool = false
+    @State private var showMapView: Bool = false
     
     var body: some View {
         NavigationView {
@@ -38,13 +39,22 @@ struct HomeView: View {
                     NavigationLink(destination: CrowdLevelView()) {
                         HomeButton(icon: "person.2.circle", label: "CROWD")
                     }
-                    HomeButton(icon: "location", label: "MAP")
+                    Button(action: {
+                        self.showMapView = true
+                    }) {
+                        HomeButton(icon: "location", label: "MAP")
+                    }
                     HomeButton(icon: "calendar", label: "EVENTS")
                     HomeButton(icon: "pencil.and.list.clipboard", label: "SCHEDULE")
                     HomeButton(icon: "graduationcap", label: "COMMUNITY")
                     HomeButton(icon: "person.crop.circle", label: "PROFILE")
                 }
                 .padding(.horizontal)
+                
+                NavigationLink(destination: MapView(), isActive: $showMapView) {
+                    EmptyView()
+                }
+                .hidden()
 
                 Spacer()
 

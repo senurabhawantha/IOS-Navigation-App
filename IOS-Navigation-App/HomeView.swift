@@ -93,32 +93,32 @@ struct HomeView: View {
 
                 Spacer()
 
-                // Bottom Navigation Bar
-                HStack {
-                    Button(action: {
-                        self.selectedTab = .home
-                    }) {
-                        BottomTabItem(icon: "house.fill", label: "Home", isActive: selectedTab == .home)
-                    }
-                    Button(action: {
-                        self.selectedTab = .map
-                    }) {
-                        BottomTabItem(icon: "map", label: "Map", isActive: selectedTab == .map)
-                    }
-                    Button(action: {
-                        self.selectedTab = .community
-                    }) {
-                        BottomTabItem(icon: "person.3.sequence.fill", label: "Community", isActive: selectedTab == .community)
-                    }
-                    Button(action: {
-                        self.selectedTab = .profile
-                    }) {
-                        BottomTabItem(icon: "person.crop.circle.badge.checkmark", label: "Profile", isActive: selectedTab == .profile)
-                    }
-                }
-                .padding()
-                .background(Color.white)
-                .shadow(radius: 5)
+//                // Bottom Navigation Bar
+//                HStack {
+//                    Button(action: {
+//                        self.selectedTab = .home
+//                    }) {
+//                        BottomTabItem(icon: "house.fill", label: "Home", isActive: selectedTab == .home)
+//                    }
+//                    Button(action: {
+//                        self.selectedTab = .map
+//                    }) {
+//                        BottomTabItem(icon: "map", label: "Map", isActive: selectedTab == .map)
+//                    }
+//                    Button(action: {
+//                        self.selectedTab = .community
+//                    }) {
+//                        BottomTabItem(icon: "person.3.sequence.fill", label: "Community", isActive: selectedTab == .community)
+//                    }
+//                    Button(action: {
+//                        self.selectedTab = .profile
+//                    }) {
+//                        BottomTabItem(icon: "person.crop.circle.badge.checkmark", label: "Profile", isActive: selectedTab == .profile)
+//                    }
+//                }
+//                .padding()
+//                .background(Color.white)
+//                .shadow(radius: 5)
             }
             .navigationBarTitle("", displayMode: .inline) // Set title to empty to avoid showing any title
             .navigationBarHidden(true) // Ensure the navigation bar is hidden

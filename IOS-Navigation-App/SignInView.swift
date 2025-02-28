@@ -18,7 +18,15 @@ struct SignInView: View {
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .padding(.top, 50) // Increased top padding to move it to the top
+                        
                         Spacer() // Pushes everything to the top
+                        
+                        Image(systemName: "graduationcap")
+                            .font(.system(size: 100))
+                            .foregroundColor(.black)
+                            .padding()
+                        
+                        Spacer() // Pushes everything to the bottom
                         
                         VStack(spacing: 20){
                             

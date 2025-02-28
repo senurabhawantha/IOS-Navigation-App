@@ -4,53 +4,86 @@ struct ContentView: View {
     @State private var selectedTab = 0
 
     var body: some View {
-        TabView(selection: $selectedTab) {
-            HomeView()
-                .tabItem {
-                    Image(systemName: "house.fill")
-                        .foregroundColor(.black)
-                    Text("Home")
-                        .foregroundColor(.black)
-                }
-                .tag(0)
+        VStack {
+            // Your main content here
+            if selectedTab == 0 {
+                HomeView()
+            } else if selectedTab == 1 {
+                MapView()
+            } else if selectedTab == 2 {
+                CommunityView()
+            } else if selectedTab == 3 {
+                CrowdLevelView()
+            } else if selectedTab == 4 {
+                StudentProfileView()
+            }
 
-            MapView()  // Pass selectedTab as a binding
-                .tabItem {
-                    Image(systemName: "map.fill")
-                        .foregroundColor(.black)
-                    Text("Map")
-                        .foregroundColor(.black)
+            // Custom navigation bar
+            HStack {
+                Button(action: {
+                    self.selectedTab = 0
+                }) {
+                    VStack {
+                        Image(systemName: "house.fill")
+                            .font(.system(size: 25)) // Increase icon size
+                            .foregroundColor(selectedTab == 0 ? .blue : .black)
+//                        Text("")
+//                            .foregroundColor(selectedTab == 0 ? .blue : .black)
+                    }
                 }
-                .tag(1)
-
-            CommunityView()
-                .tabItem {
-                    Image(systemName: "person.3.fill")
-                        .foregroundColor(.black)
-                    Text("Community")
-                        .foregroundColor(.black)
+                Spacer()
+                Button(action: {
+                    self.selectedTab = 1
+                }) {
+                    VStack {
+                        Image(systemName: "map.fill")
+                            .font(.system(size: 30)) // Increase icon size
+                            .foregroundColor(selectedTab == 1 ? .blue : .black)
+//                        Text("")
+//                            .foregroundColor(selectedTab == 1 ? .blue : .black)
+                    }
                 }
-                .tag(2)
-
-            CrowdLevelView()
-                .tabItem {
-                    Image(systemName: "cloud.fill") // Use an appropriate icon for Crowd Level
-                        .foregroundColor(.black)
-                    Text("Crowd Level")
-                        .foregroundColor(.black)
+                Spacer()
+                Button(action: {
+                    self.selectedTab = 2
+                }) {
+                    VStack {
+                        Image(systemName: "person.3.fill")
+                            .font(.system(size: 25)) // Increase icon size
+                            .foregroundColor(selectedTab == 2 ? .blue : .black)
+//                        Text("")
+//                            .foregroundColor(selectedTab == 2 ? .blue : .black)
+                    }
                 }
-                .tag(3)
-
-            StudentProfileView() // Include the new ProfileView
-                .tabItem {
-                    Image(systemName: "person.fill")
-                        .foregroundColor(.black)
-                    Text("Profile")
-                        .foregroundColor(.black)
+                Spacer()
+                Button(action: {
+                    self.selectedTab = 3
+                }) {
+                    VStack {
+                        Image(systemName: "cloud.fill")
+                            .font(.system(size: 25)) // Increase icon size
+                            .foregroundColor(selectedTab == 3 ? .blue : .black)
+//                        Text("")
+//                            .foregroundColor(selectedTab == 3 ? .blue : .black)
+                    }
                 }
-                .tag(4)
+                Spacer()
+                Button(action: {
+                    self.selectedTab = 4
+                }) {
+                    VStack {
+                        Image(systemName: "person.fill")
+                            .font(.system(size: 25)) // Increase icon size
+                            .foregroundColor(selectedTab == 4 ? .blue : .black)
+//                        Text("")
+//                            .foregroundColor(selectedTab == 4 ? .blue : .black)
+                    }
+                }
+            }
+            .padding()
+            .background(Color.white)
+            .shadow(radius: 2)
         }
-        .accentColor(.green) // Change the accent color to black
     }
 }
 

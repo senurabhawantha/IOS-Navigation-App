@@ -108,11 +108,11 @@ struct HomeButton: View {
             Image(systemName: icon)
                 .resizable()
                 .frame(width: 60, height: 60)
-                .foregroundColor(.white) // Change icon color to white
+                .foregroundColor(.black) // Change icon color to white
             Text(label)
                 .font(.headline)
                 .fontWeight(.bold)
-                .foregroundColor(.white) // Change text color to white
+                .foregroundColor(.black) // Change text color to white
         }
         .frame(width: 110, height: 110)
         .background(Color(red: 72/255, green: 201/255, blue: 176/255)) // Background color #48C9B0

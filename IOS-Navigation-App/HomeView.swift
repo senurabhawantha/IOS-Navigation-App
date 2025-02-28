@@ -39,7 +39,7 @@ struct HomeView: View {
 
                     // Graduation Cap Icon
                     Image(systemName: "graduationcap.fill")
-                        .font(.system(size: 100))
+                        .font(.system(size: 75))
                         .foregroundColor(.black)
                         .padding(.bottom, 20)
 

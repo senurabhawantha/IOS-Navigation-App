@@ -11,10 +11,10 @@ struct CrowdLevelView: View {
     }
 
     let areas: [Area] = [
-        Area(name: "Study Area", description: "The study area is quiet and not busy, making it a great spot for focused work or peaceful reading.", crowdLevel: 0.1, color: .blue),
-        Area(name: "Cafeteria", description: "The cafeteria is bustling with activity, so expect some wait time if you're grabbing a meal or a coffee.", crowdLevel: 0.9, color: .red),
-        Area(name: "Parking Area", description: "The parking area is moderately busy, with some spots still available, but it may fill up soon.", crowdLevel: 0.5, color: .yellow),
-        Area(name: "Library", description: "The library is calm and uncrowded, offering a perfect environment for studying or relaxing with a book.", crowdLevel: 0.2, color: .blue),
+        Area(name: "Study Area", description: "The study area is quiet and not busy, making it a great spot ", crowdLevel: 0.1, color: .blue),
+        Area(name: "Cafeteria", description: "The cafeteria is bustling with activity, so expect some wait time.", crowdLevel: 0.9, color: .red),
+        Area(name: "Parking Area", description: "The parking area is moderately busy, with some spots still available", crowdLevel: 0.5, color: .yellow),
+        Area(name: "Library", description: "The library is calm and uncrowded, offering a perfect environment for studying", crowdLevel: 0.2, color: .blue),
         Area(name: "Conference Halls", description: "The conference halls are busy with ongoing events, so expect a lively atmosphere and limited availability.", crowdLevel: 0.8, color: .red)
     ]
 
@@ -27,7 +27,7 @@ struct CrowdLevelView: View {
                 Text("Crowd Level")
                     .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .center) // Ensures it's centered
-                
+                    .padding(10)
                 HStack {
                 }
             }

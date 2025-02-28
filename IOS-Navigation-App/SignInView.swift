@@ -22,7 +22,7 @@ struct SignInView: View {
                         Spacer() // Pushes everything to the top
                         
                         Image(systemName: "graduationcap")
-                            .font(.system(size: 100))
+                            .font(.system(size: 115))
                             .foregroundColor(.black)
                             .padding()
                         
@@ -120,7 +120,7 @@ struct SignInView: View {
                         }
                         .padding()
                     }
-                    .background(Color(red: 178/255, green: 255/255, blue: 252/255)) // Mint Green background
+                    .background(Color(red: 72/255, green: 201/255, blue: 176/255)) // Background color #48C9B0
                 } else if viewState == .signUp {
                     SignUpView()
                 } else if viewState == .home {

@@ -7,7 +7,7 @@ struct ForgotPasswordView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(red: 178/255, green: 255/255, blue: 252/255) // Mint Green background
+                Color(red: 72/255, green: 201/255, blue: 176/255) // Background color #48C9B0
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 20) {
@@ -30,13 +30,13 @@ struct ForgotPasswordView: View {
                     
                     Text("Don't worry!. Please enter the email address linked with your account.")
                         .font(.body)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.black)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal)
                     
                     TextField("Enter your email", text: $email)
                         .padding()
-                        .background(Color(.systemGray6))
+                        .background(Color(.white))
                         .cornerRadius(8)
                         .padding(.horizontal)
                         .keyboardType(.emailAddress)
@@ -66,7 +66,7 @@ struct ForgotPasswordView: View {
                     NavigationLink(destination: SignInView()) {
                         Text("Remember Password? Login")
                             .font(.footnote)
-                            .foregroundColor(.blue)
+                            .foregroundColor(.black)
                     }
                     .padding()
                 }

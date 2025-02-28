@@ -8,7 +8,7 @@ struct ResetPasswordView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(red: 178/255, green: 255/255, blue: 252/255) // Mint Green background
+                Color(red: 72/255, green: 201/255, blue: 176/255) // Background color #48C9B0
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 20) {
@@ -29,28 +29,38 @@ struct ResetPasswordView: View {
                         .fontWeight(.bold)
                         .padding(.top, 20)
                     
-                    Text("Create new password")
-                        .font(.headline)
-                        .foregroundColor(.gray)
-                        .padding(.top, 5)
+//                    Text("Create new password")
+//                        .font(.headline)
+//                        .foregroundColor(.black)
+//                        .padding(.top, 5)
                     
                     Text("Your new password must be unique from those previously used.")
                         .font(.body)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.black)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal)
                     
-                    SecureField("New Password", text: $newPassword)
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("     New Password")
+                            .font(.headline)
+                            .foregroundColor(.black)
+                        SecureField("New Password", text: $newPassword)
                         .padding()
                         .background(Color(.systemGray6))
                         .cornerRadius(8)
                         .padding(.horizontal)
+                    }
                     
-                    SecureField("Confirm Password", text: $confirmPassword)
-                        .padding()
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
-                        .padding(.horizontal)
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("     Confirm Password")
+                            .font(.headline)
+                            .foregroundColor(.black)
+                        SecureField("Confirm Password", text: $confirmPassword)
+                            .padding()
+                            .background(Color(.systemGray6))
+                            .cornerRadius(8)
+                            .padding(.horizontal)
+                    }
                     
                     Button(action: {
                         // Handle reset password action

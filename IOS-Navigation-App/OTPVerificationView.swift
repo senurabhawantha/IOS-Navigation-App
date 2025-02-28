@@ -10,7 +10,7 @@ struct OTPVerificationView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(red: 178/255, green: 255/255, blue: 252/255) // Mint Green background
+                Color(red: 72/255, green: 201/255, blue: 176/255) // Background color #48C9B0
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 20) {
@@ -33,7 +33,7 @@ struct OTPVerificationView: View {
                     
                     Text("Enter the verification code we just sent on your email address.")
                         .font(.body)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.black)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal)
                     
@@ -92,7 +92,7 @@ struct OTPVerificationView: View {
                     NavigationLink(destination: ForgotPasswordView()) {
                         Text("Didn’t receive code? Resend code")
                             .font(.footnote)
-                            .foregroundColor(.blue)
+                            .foregroundColor(.black)
                     }
                     .padding()
                 }

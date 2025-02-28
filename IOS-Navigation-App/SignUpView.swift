@@ -10,7 +10,7 @@ struct SignUpView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(red: 178/255, green: 255/255, blue: 252/255) // Mint Green background
+                Color(red: 72/255, green: 201/255, blue: 176/255) // Background color #48C9B0
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 30) {

@@ -176,10 +176,10 @@ struct SettingsSectionView: View {
                 .padding(.bottom, 5)
 
             SettingRow(label: "Enable Notifications", isEnabled: $notificationsEnabled, editable: editMode)
-            SettingRow(label: "Dark Mode", isEnabled: $darkModeEnabled, editable: editMode)
-            SettingRow(label: "Location Services", isEnabled: $locationServicesEnabled, editable: false) //Not editable
-            SettingRow(label: "Enable Face ID", isEnabled: $faceIDEnabled, editable: editMode)
-            SettingRow(label: "Enable Two-Factor Auth", isEnabled: $twoFactorAuthEnabled, editable: editMode)
+//            SettingRow(label: "Dark Mode", isEnabled: $darkModeEnabled, editable: editMode)
+//            SettingRow(label: "Location Services", isEnabled: $locationServicesEnabled, editable: false) //Not editable
+//            SettingRow(label: "Enable Face ID", isEnabled: $faceIDEnabled, editable: editMode)
+//            SettingRow(label: "Enable Two-Factor Auth", isEnabled: $twoFactorAuthEnabled, editable: editMode)
 
         }
         .padding()

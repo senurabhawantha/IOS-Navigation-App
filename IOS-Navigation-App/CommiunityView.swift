@@ -26,7 +26,7 @@ struct CommunityView: View {
 //                            .foregroundColor(.blue)
                     }
                     Spacer()
-                    Text("Community Updates")
+                    Text("     Community Updates")
                         .font(.title3)
                         .fontWeight(.bold)
                     Spacer()
@@ -63,17 +63,6 @@ struct CommunityView: View {
                     .padding(.horizontal)
                 }
                 Spacer()
-                
-                // Bottom Tab Bar (Placeholder)
-                HStack {
-                    BottomTabItem(icon: "house.fill", label: "Home")
-                    BottomTabItem(icon: "map", label: "Map")
-//                    BottomTabItem(icon: "person.2.fill", label: "Community", isSelected: true)
-                    BottomTabItem(icon: "person.crop.circle", label: "Profile")
-                }
-                .padding()
-                .background(Color.white)
-                .shadow(radius: 5)
             }
             .navigationBarHidden(true)
         }
@@ -138,28 +127,6 @@ struct StatusRow: View {
         .onTapGesture {
             isSelected.toggle()
         }
-    }
-}
-
-struct BottomTabItem4: View {
-    let icon: String
-    let label: String? = nil
-    var isSelected: Bool = false
-    
-    var body: some View {
-        VStack {
-            Image(systemName: icon)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 24, height: 24)
-                .foregroundColor(isSelected ? .blue : .gray)
-            if let label = label {
-                Text(label)
-                    .font(.caption)
-                    .foregroundColor(isSelected ? .blue : .gray)
-            }
-        }
-        .frame(maxWidth: .infinity)
     }
 }
 

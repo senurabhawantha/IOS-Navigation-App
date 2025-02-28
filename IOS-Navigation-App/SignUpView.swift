@@ -5,7 +5,7 @@ struct SignUpView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var confirmPassword: String = ""
-    @State private var showHomeView: Bool = false
+    @State private var showSignInView: Bool = false
     
     var body: some View {
         NavigationView {
@@ -70,9 +70,9 @@ struct SignUpView: View {
                     // Sign-Up Button
                     Button(action: {
                         // Handle sign-up action
-                        // For demonstration, navigate to HomeView
+                        // For demonstration, navigate to SignInView
                         // In a real app, you would handle registration here
-                        self.showHomeView = true
+                        self.showSignInView = true
                     }) {
                         Text("SIGN UP")
                             .font(.headline)
@@ -84,32 +84,11 @@ struct SignUpView: View {
                     }
                     .padding(.horizontal)
                     
-                    NavigationLink(destination: HomeView(), isActive: $showHomeView) {
+                    NavigationLink(destination: SignInView(), isActive: $showSignInView) {
                         EmptyView()
                     }
                     .hidden()
                     
-//                    // Or Text
-//                    Text("Or")
-//                        .font(.subheadline)
-//                        .foregroundColor(.gray)
-//                        .padding(5)
-                    
-                    
-//                    // Sign-Up Button
-//                    Button(action: {
-//                        // Handle sign-up action
-//                    }) {
-//                        Text("Continue with Apple")
-//                            .font(.headline)
-//                            .foregroundColor(.white)
-//                            .frame(maxWidth: .infinity)
-//                            .padding()
-//                            .background(Color.black)
-//                            .cornerRadius(8)
-//                    }
-//                    .padding(.horizontal)
-//                    
                     // Login Button
                     NavigationLink(destination: SignInView()) {
                         Text("Already have an account? Log In Now")

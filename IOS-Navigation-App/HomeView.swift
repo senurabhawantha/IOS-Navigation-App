@@ -5,6 +5,7 @@ struct HomeView: View {
     @State private var showMapView: Bool = false
     @State private var showEventView: Bool = false
     @State private var showCommunityView: Bool = false
+    @State private var showStudentProfileView: Bool = false
     
     var body: some View {
         NavigationView {
@@ -57,7 +58,11 @@ struct HomeView: View {
                     }) {
                         HomeButton(icon: "graduationcap", label: "COMMUNITY")
                     }
-                    HomeButton(icon: "person.crop.circle", label: "PROFILE")
+                    Button(action: {
+                        self.showStudentProfileView = true
+                    }) {
+                        HomeButton(icon: "person.crop.circle", label: "PROFILE")
+                    }
                 }
                 .padding(.horizontal)
                 
@@ -75,6 +80,11 @@ struct HomeView: View {
                     EmptyView()
                 }
                 .hidden()
+                
+                NavigationLink(destination: StudentProfileView(), isActive: $showStudentProfileView) {
+                    EmptyView()
+                }
+                .hidden()
 
                 Spacer()
 
@@ -83,13 +93,13 @@ struct HomeView: View {
                     BottomTabItem(icon: "house.fill", label: "Home", isActive: true)
                     BottomTabItem(icon: "map", label: "Map")
                     BottomTabItem(icon: "person.3.sequence.fill", label: "Community")
-                    BottomTabItem(icon: "person.crop.circle.badge.checkmark", label: "Profile")
+                      BottomTabItem(icon: "person.crop.circle.badge.checkmark", label: "Profile")
                 }
                 .padding()
                 .background(Color.white)
                 .shadow(radius: 5)
             }
-            .navigationBarHidden(true) // Hide the navigation bar
+            .navigationBarHidden(true)
         }
     }
 }

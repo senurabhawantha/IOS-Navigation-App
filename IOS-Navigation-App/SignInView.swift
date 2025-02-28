@@ -60,8 +60,7 @@ struct SignInView: View {
                             
                             Button(action: {
                                 // Handle login action
-                                // For demonstration, navigate to HomeView
-                                // In a real app, you would handle authentication here
+                                // For demonstration, navigate to ContentView
                                 self.viewState = .home
                             }) {
                                 Text("SIGN IN")
@@ -73,7 +72,7 @@ struct SignInView: View {
                                     .cornerRadius(8)
                             }
                             .padding(.horizontal)
-//                            
+//
 //                            Text("Or")
 //                                .font(.subheadline)
 //                                .foregroundColor(.gray)
@@ -81,7 +80,7 @@ struct SignInView: View {
                             
 //                            // Sign-In with Apple Button
 //                            Button(action: {
-//                               
+//
 //                                // Handle sign-in with Apple action
 //                            }) {
 //                                HStack {
@@ -90,7 +89,7 @@ struct SignInView: View {
 //                                        .scaledToFit()
 //                                        .frame(width: 20, height: 20) // Adjust size
 //                                        .foregroundColor(.white) // Apple logo color
-//                                    
+//
 //                                    Text("Continue with Apple")
 //                                        .font(.headline)
 //                                        .foregroundColor(.white)
@@ -116,7 +115,7 @@ struct SignInView: View {
                 } else if viewState == .signUp {
                     SignUpView()
                 } else if viewState == .home {
-                    HomeView()
+                    ContentView() // Navigate to ContentView
                 } else if viewState == .forgotPassword {
                     ForgotPasswordView()
                 }

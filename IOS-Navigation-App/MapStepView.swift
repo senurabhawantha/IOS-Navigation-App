@@ -9,6 +9,12 @@ struct MapStepsView: View {
         "YOU REACHED TO HARDWARE LAB"
     ]
     
+    @State private var searchText: String = ""
+
+    var filteredSteps: [String] {
+        searchText.isEmpty ? steps : steps.filter { $0.localizedCaseInsensitiveContains(searchText) }
+    }
+
     var body: some View {
         VStack(alignment: .leading) {
             // Back Button
@@ -34,79 +40,98 @@ struct MapStepsView: View {
                 .fontWeight(.semibold)
                 .padding(.top, 5)
                 .frame(maxWidth: .infinity, alignment: .center)
-            
-            VStack(spacing: 20){
+
+            // Search Bar with Mic
+            HStack {
+                TextField("Search", text: $searchText)
+                    .padding(10)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(10)
                 
-                // Steps List
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 20) {
-                        ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
-                            StepRow(index: index + 1, text: step)
-                        }
-                    }
-                    .padding(.horizontal)
-                    .padding(.top, 10)
+                Button(action: {
+                    // Add voice search functionality here
+                }) {
+                    Image(systemName: "mic.fill")
+                        .foregroundColor(.blue)
+                        .padding(.trailing, 10)
                 }
-                
-                Spacer()
-                
-                // Bottom Navigation Bar
-                HStack {
-                    CustomTabItem(icon: "house.fill", label: "Home", isActive: true)
-                    CustomTabItem(icon: "map.fill", label: "Map")
-                    CustomTabItem(icon: "bubble.left.and.bubble.right.fill", label: "Community")
-                    CustomTabItem(icon: "person.crop.circle.fill", label: "Profile")
-                }
-                .padding()
-                .background(Color.white)
-                .shadow(radius: 5)
             }
+            .padding(.horizontal)
+            .padding(.vertical, 5)
+
+            // Steps List
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    ForEach(Array(filteredSteps.enumerated()), id: \.offset) { index, step in
+                        StepRow(index: index + 1, text: step, isLast: index == filteredSteps.count - 1)
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.top, 10)
+            }
+
+            Spacer()
+
+            // Bottom Navigation Bar (Unchanged)
+            HStack {
+                CustomTabItem(icon: "house.fill", label: "Home", isActive: true)
+                CustomTabItem(icon: "map.fill", label: "Map")
+                CustomTabItem(icon: "bubble.left.and.bubble.right.fill", label: "Community")
+                CustomTabItem(icon: "person.crop.circle.fill", label: "Profile")
+            }
+            .padding()
+            .background(Color.white)
+            .shadow(radius: 5)
         }
+        .padding(.bottom, 10)
     }
-    // Step Row with Numbered Circle & Dotted Line
-    
+
+    // Step Row with Numbered Circle & Progress Line
     struct StepRow: View {
         let index: Int
         let text: String
-        
+        let isLast: Bool
+
         var body: some View {
-            HStack(alignment: .top) {
+            HStack(alignment: .top, spacing: 12) {
                 VStack {
                     Text("\(index)")
                         .font(.headline)
                         .frame(width: 30, height: 30)
-                        .background(Color.white)
-                        .foregroundColor(.black)
-                        .clipShape(Circle()) // ✅ Fixed Circle error
-                        .overlay(Circle().stroke(Color.gray, lineWidth: 1))
-                    
-                    if index != 5 { // Hide for last step
+                        .background(Color.blue.opacity(0.2))
+                        .foregroundColor(.blue)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.blue, lineWidth: 1))
+                        .shadow(radius: 2)
+
+                    if !isLast {
                         Rectangle()
                             .frame(width: 2, height: 40)
-                            .foregroundColor(.gray.opacity(0.5))
+                            .foregroundColor(Color.blue.opacity(0.5))
                     }
                 }
                 
                 Text(text)
                     .font(.body)
-                    .padding(.leading, 10)
+                    .foregroundColor(.primary)
+                    .padding(.vertical, 5)
                 
                 Spacer()
             }
         }
     }
-    
-    // Bottom Navigation Bar Item (Renamed to Avoid Conflict)
-    struct CustomTabItem: View { // ✅ Renamed to avoid duplicate error
+
+    // Bottom Navigation Bar Item (Unchanged)
+    struct CustomTabItem: View {
         let icon: String
         let label: String
         var isActive: Bool = false
-        
+
         var body: some View {
             VStack {
                 Image(systemName: icon)
                     .resizable()
-                    .frame(width: 25, height: 25)
+                    .frame(width: 35, height: 30)
                     .foregroundColor(isActive ? .blue : .black)
                 Text(label)
                     .font(.caption)

@@ -21,9 +21,9 @@ struct CommunityView: View {
                     Button(action: {
                         // Handle back action
                     }) {
-                        Image(systemName: "chevron.left")
-                            .font(.title)
-                            .foregroundColor(.blue)
+//                        Image(systemName: "chevron.left")
+//                            .font(.title)
+//                            .foregroundColor(.blue)
                     }
                     Spacer()
                     Text("Community Updates")

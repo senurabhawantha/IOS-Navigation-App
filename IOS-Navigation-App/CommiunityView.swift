@@ -26,7 +26,7 @@ struct CommunityView: View {
 //                            .foregroundColor(.blue)
                     }
                     Spacer()
-                    Text("     Community Updates")
+                    Text("Community Updates")
                         .font(.title3)
                         .fontWeight(.bold)
                     Spacer()

@@ -37,7 +37,7 @@ struct SignInView: View {
                                 
                                 TextField("Enter your email", text: $email)
                                     .padding()
-                                    .background(Color(.white))
+                                    .background(Color(.systemGray6))
                                     .cornerRadius(8)
                                     .keyboardType(.emailAddress)
                                     .autocapitalization(.none)
@@ -48,7 +48,7 @@ struct SignInView: View {
                                 
                                 SecureField("Enter your password", text: $password)
                                     .padding()
-                                    .background(Color(.white))
+                                    .background(Color(.systemGray6))
                                     .cornerRadius(8)
                             }
                             .padding(.horizontal)
@@ -120,7 +120,7 @@ struct SignInView: View {
                         }
                         .padding()
                     }
-                    .background(Color(red: 72/255, green: 201/255, blue: 176/255)) // Background color #48C9B0
+                    .background(Color.white) // Change background color to white
                 } else if viewState == .signUp {
                     SignUpView()
                 } else if viewState == .home {

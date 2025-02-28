@@ -7,7 +7,7 @@ struct LoadingViewPage: View {
         NavigationView {
             ZStack {
                 // Background Color
-                Color(red: 72/255, green: 201/255, blue: 176/255) // Background color #48C9B0
+                Color.white // Change background color to white
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack {
@@ -20,7 +20,7 @@ struct LoadingViewPage: View {
                             .foregroundColor(.blue)
                         Text("NAVIGATOR APP")
                             .font(.system(size: 32, weight: .medium, design: .rounded))
-                            .foregroundColor(.black.opacity(25))
+                            .foregroundColor(.black.opacity(0.25))
                     }
                     .padding(.top, 20) // Add some padding from the top
                     .padding(.horizontal) // Optional: Add horizontal padding
@@ -31,7 +31,7 @@ struct LoadingViewPage: View {
                     Image("nibm_icon") // Ensure the asset is available
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 130, height: 25)
+                        .frame(width: 130, height: 130)
                         .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
                     
                     // Pushes everything to the bottom
@@ -48,6 +48,7 @@ struct LoadingViewPage: View {
                         }
                         .frame(maxWidth: .infinity, alignment: .center) // Center horizontally
                         .padding(.bottom, 20)
+                    
                     
                     // Get Started Button
                     NavigationLink(destination: SignInView()) {

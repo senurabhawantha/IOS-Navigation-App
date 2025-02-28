@@ -60,7 +60,7 @@ struct ContentView: View {
                     self.selectedTab = 3
                 }) {
                     VStack {
-                        Image(systemName: "figure")
+                        Image(systemName: "figure.walk")
                             .font(.system(size: 30)) // Increase icon size
                             .foregroundColor(selectedTab == 3 ? .blue : .black)
 //                        Text("")

@@ -18,22 +18,22 @@ struct MapStepsView: View {
     var body: some View {
         VStack(alignment: .leading) {
             // Back Button
-            HStack {
-//                Button(action: {
-//                    // Add Navigation action here
-//                }) {
-//                    HStack {
-//                        Image(systemName: "chevron.left")
-//                            .foregroundColor(.blue)
-//                        Text("Back")
-//                            .foregroundColor(.blue)
-//                    }
-//                }
-//                Spacer()
-            }
-            .padding(.horizontal)
-            .padding(.top, 10)
-            
+//            HStack {
+////                Button(action: {
+////                    // Add Navigation action here
+////                }) {
+////                    HStack {
+////                        Image(systemName: "chevron.left")
+////                            .foregroundColor(.blue)
+////                        Text("Back")
+////                            .foregroundColor(.blue)
+////                    }
+////                }
+////                Spacer()
+//            }
+//            .padding(.horizontal)
+//            .padding(.top, 10)
+//            
             // Title
             Text("Map - Steps")
                 .font(.title2)

@@ -22,13 +22,13 @@ struct StudentProfileView: View {
             VStack {
                 // Header
                 HStack {
-                    Button(action: {
-                        // Handle back action
-                    }) {
-//                        Image(systemName: "chevron.left")
-//                            .font(.title)
-//                            .foregroundColor(.blue)
-                    }
+//                    Button(action: {
+//                        // Handle back action
+//                    }) {
+////                        Image(systemName: "chevron.left")
+////                            .font(.title)
+////                            .foregroundColor(.blue)
+//                    }
                     Spacer()
                     Text("             Student Profile")
                         .font(.title3)

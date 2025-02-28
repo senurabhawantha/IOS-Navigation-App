@@ -10,21 +10,21 @@ struct OTPVerificationView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(red: 72/255, green: 201/255, blue: 176/255) // Background color #48C9B0
+                Color.white // Change background color to white
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 20) {
-                    HStack {
-                        Button(action: {
-                            // Handle back action
-                        }) {
-//                            Image(systemName: "chevron.left")
-//                                .font(.title)
-//                                .foregroundColor(.blue)
-                        }
-                        Spacer()
-                    }
-                    .padding(.horizontal)
+//                    HStack {
+//                        Button(action: {
+//                            // Handle back action
+//                        }) {
+////                            Image(systemName: "chevron.left")
+////                                .font(.title)
+////                                .foregroundColor(.blue)
+//                        }
+//                        Spacer()
+//                    }
+//                    .padding(.horizontal)
                     
                     Text("OTP Verification")
                         .font(.largeTitle)

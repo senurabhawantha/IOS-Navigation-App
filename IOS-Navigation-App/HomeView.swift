@@ -46,7 +46,7 @@ struct HomeView: View {
                     // Grid Layout for Options
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 25) {
                         NavigationLink(destination: CrowdLevelView()) {
-                            HomeButton(icon: "figure", label: "CROWD")
+                            HomeButton(icon: "figure.walk.circle", label: "CROWD")
                         }
                         Button(action: {
                             self.showMapView = true

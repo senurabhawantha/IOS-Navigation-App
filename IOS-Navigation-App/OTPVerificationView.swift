@@ -31,6 +31,12 @@ struct OTPVerificationView: View {
                         .fontWeight(.bold)
                         .padding(.top, 20)
                     
+                    Image(systemName: "envelope.badge.shield.half.filled")
+                        .font(.system(size: 100))
+                        .foregroundColor(.black)
+                        .padding(.bottom, 75)
+                        .padding(.top, 150)
+                    
                     Text("Enter the verification code we just sent on your email address.")
                         .font(.body)
                         .foregroundColor(.black)
@@ -40,28 +46,28 @@ struct OTPVerificationView: View {
                     HStack(spacing: 15) {
                         TextField("", text: $otp1)
                             .frame(width: 50, height: 50)
-                            .background(Color(.systemGray6))
+                            .background(Color(.systemGray4))
                             .cornerRadius(8)
                             .multilineTextAlignment(.center)
                             .keyboardType(.numberPad)
                         
                         TextField("", text: $otp2)
                             .frame(width: 50, height: 50)
-                            .background(Color(.systemGray6))
+                            .background(Color(.systemGray4))
                             .cornerRadius(8)
                             .multilineTextAlignment(.center)
                             .keyboardType(.numberPad)
                         
                         TextField("", text: $otp3)
                             .frame(width: 50, height: 50)
-                            .background(Color(.systemGray6))
+                            .background(Color(.systemGray4))
                             .cornerRadius(8)
                             .multilineTextAlignment(.center)
                             .keyboardType(.numberPad)
                         
                         TextField("", text: $otp4)
                             .frame(width: 50, height: 50)
-                            .background(Color(.systemGray6))
+                            .background(Color(.systemGray4))
                             .cornerRadius(8)
                             .multilineTextAlignment(.center)
                             .keyboardType(.numberPad)
@@ -96,9 +102,9 @@ struct OTPVerificationView: View {
                     }
                     .padding()
                 }
-                .padding(.vertical, 50)
+                .padding(.vertical, 25)
             }
-            .navigationBarHidden(true) // Hide the navigation bar
+//            .navigationBarHidden(true) // Hide the navigation bar
         }
     }
 }

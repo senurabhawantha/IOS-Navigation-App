@@ -34,7 +34,7 @@ struct LoadingViewPage: View {
                             .foregroundColor(.blue)
                         Text("NAVIGATOR APP")
                             .font(.system(size: 32, weight: .medium, design: .rounded))
-                            .foregroundColor(.black.opacity(0.9))
+                            .foregroundColor(.black.opacity(25))
                     }
                     .opacity(isAnimating ? 1 : 0.6)
                     .animation(Animation.easeIn(duration: 1.5), value: isAnimating)

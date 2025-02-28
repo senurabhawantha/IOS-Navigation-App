@@ -26,27 +26,27 @@ struct HomeView: View {
                     // Search Bar
                     HStack {
                         TextField("Search", text: .constant(""))
-                            .padding(10)
+                            .padding(12.5)
                             .background(Color(.systemGray6))
-                            .cornerRadius(10)
+                            .cornerRadius(25)
 
                         Image(systemName: "mic.fill")
-                            .foregroundColor(.blue)
+                            .foregroundColor(.black)
                             .padding(.trailing, 10)
                     }
                     .padding(.horizontal)
                     .padding(.bottom, 20)
 
                     // Graduation Cap Icon
-                    Image(systemName: "iphone.gen1.badge.location")
-                        .font(.system(size: 75))
-                        .foregroundColor(.green)
+                    Image(systemName: "graduationcap.fill")
+                        .font(.system(size: 100))
+                        .foregroundColor(.black)
                         .padding(.bottom, 20)
 
                     // Grid Layout for Options
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 25) {
                         NavigationLink(destination: CrowdLevelView()) {
-                            HomeButton(icon: "person.2.circle", label: "CROWD")
+                            HomeButton(icon: "figure", label: "CROWD")
                         }
                         Button(action: {
                             self.showMapView = true
@@ -66,12 +66,12 @@ struct HomeView: View {
                         Button(action: {
                             self.showCommunityView = true
                         }) {
-                            HomeButton(icon: "graduationcap", label: "COMMUNITY")
+                            HomeButton(icon: "bell.circle", label: "COMMUNITY")
                         }
                         Button(action: {
                             self.showStudentProfileView = true
                         }) {
-                            HomeButton(icon: "person.crop.circle", label: "PROFILE")
+                            HomeButton(icon: "person", label: "PROFILE")
                         }
                     }
                     .padding(.horizontal)

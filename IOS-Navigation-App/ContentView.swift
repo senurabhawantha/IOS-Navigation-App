@@ -36,7 +36,7 @@ struct ContentView: View {
                     self.selectedTab = 1
                 }) {
                     VStack {
-                        Image(systemName: "map.fill")
+                        Image(systemName: "location.fill")
                             .font(.system(size: 30)) // Increase icon size
                             .foregroundColor(selectedTab == 1 ? .blue : .black)
 //                        Text("")
@@ -48,8 +48,8 @@ struct ContentView: View {
                     self.selectedTab = 2
                 }) {
                     VStack {
-                        Image(systemName: "person.3.fill")
-                            .font(.system(size: 25)) // Increase icon size
+                        Image(systemName: "bell.circle.fill")
+                            .font(.system(size: 35)) // Increase icon size
                             .foregroundColor(selectedTab == 2 ? .blue : .black)
 //                        Text("")
 //                            .foregroundColor(selectedTab == 2 ? .blue : .black)
@@ -60,8 +60,8 @@ struct ContentView: View {
                     self.selectedTab = 3
                 }) {
                     VStack {
-                        Image(systemName: "cloud.fill")
-                            .font(.system(size: 25)) // Increase icon size
+                        Image(systemName: "figure")
+                            .font(.system(size: 30)) // Increase icon size
                             .foregroundColor(selectedTab == 3 ? .blue : .black)
 //                        Text("")
 //                            .foregroundColor(selectedTab == 3 ? .blue : .black)

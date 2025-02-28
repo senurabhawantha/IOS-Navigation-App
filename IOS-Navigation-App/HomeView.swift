@@ -6,7 +6,8 @@ struct HomeView: View {
     @State private var showEventView: Bool = false
     @State private var showCommunityView: Bool = false
     @State private var showStudentProfileView: Bool = false
-    
+    @State private var showScheduleView: Bool = false  // Add this state
+
     var body: some View {
         NavigationView {
             VStack {
@@ -52,7 +53,11 @@ struct HomeView: View {
                     }) {
                         HomeButton(icon: "calendar", label: "EVENTS")
                     }
-                    HomeButton(icon: "pencil.and.list.clipboard", label: "SCHEDULE")
+                    Button(action: { // Modified this button
+                        self.showScheduleView = true
+                    }) {
+                        HomeButton(icon: "pencil.and.list.clipboard", label: "SCHEDULE")
+                    }
                     Button(action: {
                         self.showCommunityView = true
                     }) {
@@ -65,23 +70,28 @@ struct HomeView: View {
                     }
                 }
                 .padding(.horizontal)
-                
+
                 NavigationLink(destination: MapView(), isActive: $showMapView) {
                     EmptyView()
                 }
                 .hidden()
-                
+
                 NavigationLink(destination: EventView(), isActive: $showEventView) {
                     EmptyView()
                 }
                 .hidden()
-                
+
                 NavigationLink(destination: CommunityView(), isActive: $showCommunityView) {
                     EmptyView()
                 }
                 .hidden()
-                
+
                 NavigationLink(destination: StudentProfileView(), isActive: $showStudentProfileView) {
+                    EmptyView()
+                }
+                .hidden()
+
+                NavigationLink(destination: ScheduleView(), isActive: $showScheduleView) { // Add this NavigationLink
                     EmptyView()
                 }
                 .hidden()
@@ -93,7 +103,7 @@ struct HomeView: View {
                     BottomTabItem(icon: "house.fill", label: "Home", isActive: true)
                     BottomTabItem(icon: "map", label: "Map")
                     BottomTabItem(icon: "person.3.sequence.fill", label: "Community")
-                      BottomTabItem(icon: "person.crop.circle.badge.checkmark", label: "Profile")
+                    BottomTabItem(icon: "person.crop.circle.badge.checkmark", label: "Profile")
                 }
                 .padding()
                 .background(Color.white)

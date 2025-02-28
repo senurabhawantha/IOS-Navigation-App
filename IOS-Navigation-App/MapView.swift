@@ -20,6 +20,7 @@ struct MapView: View {
                         Text("Your location")
                             .fontWeight(.medium)
                         Spacer()
+                        
                     }
                     HStack {
                         Image(systemName: "mappin.and.ellipse")
@@ -38,15 +39,17 @@ struct MapView: View {
                 Image("Map1")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 500)
-                    .cornerRadius(50)
+                    .frame(height: 400)
+                    .cornerRadius(25)
                     .padding(.horizontal)
 
+                Spacer()
+                
                 // View Step Button
                 Button(action: {
                     self.showMapStepsView = true
                 }) {
-                    Text("View Step ->")
+                    Text("View Step >>")
                         .font(.headline)
                         .foregroundColor(.white)
                         .padding()

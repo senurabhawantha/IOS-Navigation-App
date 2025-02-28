@@ -20,7 +20,7 @@ struct LoadingViewPage: View {
                             .foregroundColor(.blue)
                         Text("NAVIGATOR APP")
                             .font(.system(size: 32, weight: .medium, design: .rounded))
-                            .foregroundColor(.black.opacity(0.25))
+                            .foregroundColor(.black.opacity(25))
                     }
                     .padding(.top, 20) // Add some padding from the top
                     .padding(.horizontal) // Optional: Add horizontal padding

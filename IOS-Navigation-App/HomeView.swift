@@ -40,7 +40,7 @@ struct HomeView: View {
                     // Graduation Cap Icon
                     Image(systemName: "iphone.gen1.badge.location")
                         .font(.system(size: 75))
-                        .foregroundColor(.black)
+                        .foregroundColor(.green)
                         .padding(.bottom, 20)
 
                     // Grid Layout for Options
@@ -92,7 +92,6 @@ struct HomeView: View {
 
                 Spacer()
             }
-            .background(Color(red: 72/255, green: 201/255, blue: 176/255)) // Background color #48C9B0
             .navigationBarTitle("", displayMode: .inline) // Set title to empty to avoid showing any title
             .navigationBarHidden(true) // Ensure the navigation bar is hidden
         }
@@ -109,15 +108,16 @@ struct HomeButton: View {
             Image(systemName: icon)
                 .resizable()
                 .frame(width: 60, height: 60)
-                .foregroundColor(.black)
+                .foregroundColor(.white) // Change icon color to white
             Text(label)
                 .font(.headline)
                 .fontWeight(.bold)
+                .foregroundColor(.white) // Change text color to white
         }
         .frame(width: 110, height: 110)
-        .background(Color.white)
+        .background(Color(red: 72/255, green: 201/255, blue: 176/255)) // Background color #48C9B0
         .cornerRadius(15)
-        .shadow(radius: 3)
+        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5) // Add a shadow
     }
 }
 

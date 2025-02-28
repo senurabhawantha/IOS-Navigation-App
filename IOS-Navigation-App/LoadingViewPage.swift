@@ -7,7 +7,7 @@ struct LoadingViewPage: View {
         NavigationView {
             ZStack {
                 // Animated Gradient Background
-                LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.7), Color.purple.opacity(0.7)]),
+                LinearGradient(gradient: Gradient(colors: [Color(red: 178/255, green: 255/255, blue: 252/255).opacity(0.8), Color(red: 178/255, green: 255/255, blue: 252/255).opacity(0.4)]),
                                startPoint: isAnimating ? .topLeading : .bottomTrailing,
                                endPoint: isAnimating ? .bottomTrailing : .topLeading)
                     .edgesIgnoringSafeArea(.all)
@@ -34,7 +34,7 @@ struct LoadingViewPage: View {
                             .foregroundColor(.blue)
                         Text("NAVIGATOR APP")
                             .font(.system(size: 32, weight: .medium, design: .rounded))
-                            .foregroundColor(.white.opacity(0.9))
+                            .foregroundColor(.black.opacity(0.9))
                     }
                     .opacity(isAnimating ? 1 : 0.6)
                     .animation(Animation.easeIn(duration: 1.5), value: isAnimating)
@@ -43,7 +43,7 @@ struct LoadingViewPage: View {
                     // Figure with Glowing Effect (No Animation)
                     Image(systemName: "figure.walk.circle")
                         .font(.system(size: 50))
-                        .foregroundColor(.white)
+                        .foregroundColor(.red)
                         .shadow(color: Color.white.opacity(0.8), radius: 10, x: 0, y: 0) // Keeps glowing effect
                         .padding(.bottom, 20)
 
@@ -75,12 +75,5 @@ struct LoadingViewPage: View {
 struct LoadingViewPage_Previews: PreviewProvider {
     static var previews: some View {
         LoadingViewPage()
-    }
-}
-
-struct LogInView: View {
-    var body: some View {
-        Text("Sign In View")
-            .navigationTitle("Sign In")
     }
 }

@@ -112,6 +112,7 @@ struct SignInView: View {
                         }
                         .padding()
                     }
+                    .background(Color(red: 178/255, green: 255/255, blue: 252/255)) // Mint Green background
                 } else if viewState == .signUp {
                     SignUpView()
                 } else if viewState == .home {

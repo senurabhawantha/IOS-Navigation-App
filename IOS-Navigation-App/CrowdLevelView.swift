@@ -29,13 +29,6 @@ struct CrowdLevelView: View {
                     .frame(maxWidth: .infinity, alignment: .center) // Ensures it's centered
                 
                 HStack {
-                    Button(action: {
-                        // Handle back action
-                    }) {
-                        Text("Back")
-                            .foregroundColor(.blue)
-                    }
-                    Spacer()
                 }
             }
             .padding()

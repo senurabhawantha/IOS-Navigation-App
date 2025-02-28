@@ -19,17 +19,17 @@ struct MapStepsView: View {
         VStack(alignment: .leading) {
             // Back Button
             HStack {
-                Button(action: {
-                    // Add Navigation action here
-                }) {
-                    HStack {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.blue)
-                        Text("Back")
-                            .foregroundColor(.blue)
-                    }
-                }
-                Spacer()
+//                Button(action: {
+//                    // Add Navigation action here
+//                }) {
+//                    HStack {
+//                        Image(systemName: "chevron.left")
+//                            .foregroundColor(.blue)
+//                        Text("Back")
+//                            .foregroundColor(.blue)
+//                    }
+//                }
+//                Spacer()
             }
             .padding(.horizontal)
             .padding(.top, 10)
@@ -73,15 +73,15 @@ struct MapStepsView: View {
             Spacer()
 
             // Bottom Navigation Bar (Unchanged)
-            HStack {
-                CustomTabItem(icon: "house.fill", label: "Home", isActive: true)
-                CustomTabItem(icon: "map.fill", label: "Map")
-                CustomTabItem(icon: "bubble.left.and.bubble.right.fill", label: "Community")
-                CustomTabItem(icon: "person.crop.circle.fill", label: "Profile")
-            }
-            .padding()
-            .background(Color.white)
-            .shadow(radius: 5)
+//            HStack {
+//                CustomTabItem(icon: "house.fill", label: "Home", isActive: true)
+//                CustomTabItem(icon: "map.fill", label: "Map")
+//                CustomTabItem(icon: "bubble.left.and.bubble.right.fill", label: "Community")
+//                CustomTabItem(icon: "person.crop.circle.fill", label: "Profile")
+//            }
+//            .padding()
+//            .background(Color.white)
+//            .shadow(radius: 5)
         }
         .padding(.bottom, 10)
     }

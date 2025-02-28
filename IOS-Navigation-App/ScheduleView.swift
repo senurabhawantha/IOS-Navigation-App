@@ -42,17 +42,11 @@ struct ScheduleView: View {
                 .padding()
 
                 Spacer()
-
-                // Bottom Tab Bar
-                BottomTabBar()
             }
             .navigationTitle("NIBM Schedule")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Back") {
-                        // Handle back button action
-                    }
                 }
             }
         }
@@ -118,44 +112,8 @@ struct SearchBar: View {
     }
 }
 
-// Bottom Tab Bar
-struct BottomTabBar: View {
-    var body: some View {
-        HStack {
-            TabBarItem(iconName: "house.fill", title: "Home", isSelected: true)
-            TabBarItem(iconName: "map", title: "Map", isSelected: false)
-            TabBarItem(iconName: "person.3", title: "Community", isSelected: false)
-            TabBarItem(iconName: "person", title: "Profile", isSelected: false)
-        }
-        .padding(.horizontal)
-        .frame(height: 60)
-        .background(Color.white)
-        .shadow(radius: 3)
-    }
-}
-
-// Tab Bar Item
-struct TabBarItem: View {
-    let iconName: String
-    let title: String
-    let isSelected: Bool
-
-    var body: some View {
-        VStack {
-            Image(systemName: iconName)
-                .font(.system(size: 22))
-                .foregroundColor(isSelected ? .blue : .gray)
-            Text(title)
-                .font(.caption)
-                .foregroundColor(isSelected ? .blue : .gray)
-        }
-        .frame(maxWidth: .infinity)
-    }
-}
-
 struct ScheduleView_Previews: PreviewProvider {
     static var previews: some View {
         ScheduleView()
     }
 }
-

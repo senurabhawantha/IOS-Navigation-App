@@ -60,16 +60,6 @@ struct StudentProfileView: View {
 
                 Spacer()
 
-                // Bottom Tab Bar (Placeholder)
-                HStack {
-                    BottomTabItem(icon: "house.fill", label: "Home")
-                    BottomTabItem(icon: "map", label: "Map")
-                    BottomTabItem(icon: "person.2.fill", label: "Community")
-//                    BottomTabItem(icon: "person.crop.circle", label: "Profile", isSelected: true)
-                }
-                .padding()
-                .background(Color.white)
-                .shadow(radius: 5)
             }
             .navigationBarHidden(true)
         }

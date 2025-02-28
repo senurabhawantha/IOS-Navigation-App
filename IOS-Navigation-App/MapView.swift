@@ -69,16 +69,7 @@ struct MapView: View {
             }
             .padding(.horizontal)
 
-            // Bottom Navigation Bar
-            HStack {
-                BottomTabItem(icon: "house.fill", label: "Home", isActive: true)
-                BottomTabItem(icon: "map", label: "Map")
-//                BottomTabItem(icon: "person.3.sequence.fill", label: "Community", hasNotification: true)
-                BottomTabItem(icon: "person.crop.circle", label: "Profile")
-            }
-            .padding()
-            .background(Color.white)
-            .shadow(radius: 5)
+            
         }
     }
 }

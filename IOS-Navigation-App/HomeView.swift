@@ -1,115 +1,127 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var selectedTab: Tab = .home
     @State private var showCrowdLevelView: Bool = false
     @State private var showMapView: Bool = false
     @State private var showEventView: Bool = false
     @State private var showCommunityView: Bool = false
     @State private var showStudentProfileView: Bool = false
-    @State private var showScheduleView: Bool = false  // Add this state
+    @State private var showScheduleView: Bool = false
+
+    enum Tab {
+        case home, map, community, profile
+    }
 
     var body: some View {
         NavigationView {
             VStack {
-                // Welcome Text
-                Text("Welcome to NIBM")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .padding(.top, 10)
+                if selectedTab == .home {
+                    // Welcome Text
+                    Text("Welcome to NIBM")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .padding(.top, 10)
 
-                // Search Bar
-                HStack {
-                    TextField("Search", text: .constant(""))
-                        .padding(10)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(10)
+                    // Search Bar
+                    HStack {
+                        TextField("Search", text: .constant(""))
+                            .padding(10)
+                            .background(Color(.systemGray6))
+                            .cornerRadius(10)
 
-                    Image(systemName: "mic.fill")
-                        .foregroundColor(.blue)
-                        .padding(.trailing, 10)
-                }
-                .padding(.horizontal)
-                .padding(.bottom, 20) // Added space between search bar and grid
-
-                // Library Image
-                Image("Image1")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 150)
+                        Image(systemName: "mic.fill")
+                            .foregroundColor(.blue)
+                            .padding(.trailing, 10)
+                    }
+                    .padding(.horizontal)
                     .padding(.bottom, 20)
 
-                // Grid Layout for Options
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing:25) {
-                    NavigationLink(destination: CrowdLevelView()) {
-                        HomeButton(icon: "person.2.circle", label: "CROWD")
-                    }
-                    Button(action: {
-                        self.showMapView = true
-                    }) {
-                        HomeButton(icon: "location", label: "MAP")
-                    }
-                    Button(action: {
-                        self.showEventView = true
-                    }) {
-                        HomeButton(icon: "calendar", label: "EVENTS")
-                    }
-                    Button(action: { // Modified this button
-                        self.showScheduleView = true
-                    }) {
-                        HomeButton(icon: "pencil.and.list.clipboard", label: "SCHEDULE")
-                    }
-                    Button(action: {
-                        self.showCommunityView = true
-                    }) {
-                        HomeButton(icon: "graduationcap", label: "COMMUNITY")
-                    }
-                    Button(action: {
-                        self.showStudentProfileView = true
-                    }) {
-                        HomeButton(icon: "person.crop.circle", label: "PROFILE")
-                    }
-                }
-                .padding(.horizontal)
+                    // Library Image
+                    Image("Image1")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 150)
+                        .padding(.bottom, 20)
 
-                NavigationLink(destination: MapView(), isActive: $showMapView) {
-                    EmptyView()
-                }
-                .hidden()
+                    // Grid Layout for Options
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 25) {
+                        NavigationLink(destination: CrowdLevelView()) {
+                            HomeButton(icon: "person.2.circle", label: "CROWD")
+                        }
+                        Button(action: {
+                            self.showMapView = true
+                        }) {
+                            HomeButton(icon: "location", label: "MAP")
+                        }
+                        Button(action: {
+                            self.showEventView = true
+                        }) {
+                            HomeButton(icon: "calendar", label: "EVENTS")
+                        }
+                        Button(action: {
+                            self.showScheduleView = true
+                        }) {
+                            HomeButton(icon: "pencil.and.list.clipboard", label: "SCHEDULE")
+                        }
+                        Button(action: {
+                            self.showCommunityView = true
+                        }) {
+                            HomeButton(icon: "graduationcap", label: "COMMUNITY")
+                        }
+                        Button(action: {
+                            self.showStudentProfileView = true
+                        }) {
+                            HomeButton(icon: "person.crop.circle", label: "PROFILE")
+                        }
+                    }
+                    .padding(.horizontal)
 
-                NavigationLink(destination: EventView(), isActive: $showEventView) {
-                    EmptyView()
+                    // Navigation Links for Modals (hidden)
+                    NavigationLink(destination: MapView(), isActive: $showMapView) { EmptyView() }.hidden()
+                    NavigationLink(destination: EventView(), isActive: $showEventView) { EmptyView() }.hidden()
+                    NavigationLink(destination: CommunityView(), isActive: $showCommunityView) { EmptyView() }.hidden()
+                    NavigationLink(destination: StudentProfileView(), isActive: $showStudentProfileView) { EmptyView() }.hidden()
+                    NavigationLink(destination: ScheduleView(), isActive: $showScheduleView) { EmptyView() }.hidden()
+                } else if selectedTab == .map {
+                    MapView()
+                } else if selectedTab == .community {
+                    CommunityView()
+                } else if selectedTab == .profile {
+                    StudentProfileView()
                 }
-                .hidden()
-
-                NavigationLink(destination: CommunityView(), isActive: $showCommunityView) {
-                    EmptyView()
-                }
-                .hidden()
-
-                NavigationLink(destination: StudentProfileView(), isActive: $showStudentProfileView) {
-                    EmptyView()
-                }
-                .hidden()
-
-                NavigationLink(destination: ScheduleView(), isActive: $showScheduleView) { // Add this NavigationLink
-                    EmptyView()
-                }
-                .hidden()
 
                 Spacer()
 
                 // Bottom Navigation Bar
                 HStack {
-                    BottomTabItem(icon: "house.fill", label: "Home", isActive: true)
-                    BottomTabItem(icon: "map", label: "Map")
-                    BottomTabItem(icon: "person.3.sequence.fill", label: "Community")
-                    BottomTabItem(icon: "person.crop.circle.badge.checkmark", label: "Profile")
+                    Button(action: {
+                        self.selectedTab = .home
+                    }) {
+                        BottomTabItem(icon: "house.fill", label: "Home", isActive: selectedTab == .home)
+                    }
+                    Button(action: {
+                        self.selectedTab = .map
+                    }) {
+                        BottomTabItem(icon: "map", label: "Map", isActive: selectedTab == .map)
+                    }
+                    Button(action: {
+                        self.selectedTab = .community
+                    }) {
+                        BottomTabItem(icon: "person.3.sequence.fill", label: "Community", isActive: selectedTab == .community)
+                    }
+                    Button(action: {
+                        self.selectedTab = .profile
+                    }) {
+                        BottomTabItem(icon: "person.crop.circle.badge.checkmark", label: "Profile", isActive: selectedTab == .profile)
+                    }
                 }
                 .padding()
                 .background(Color.white)
                 .shadow(radius: 5)
             }
-            .navigationBarHidden(true)
+            .navigationBarTitle("", displayMode: .inline) // Set title to empty to avoid showing any title
+            .navigationBarHidden(true) // Ensure the navigation bar is hidden
         }
     }
 }
@@ -123,13 +135,13 @@ struct HomeButton: View {
         VStack {
             Image(systemName: icon)
                 .resizable()
-                .frame(width: 60, height: 60) // Increased size
+                .frame(width: 60, height: 60)
                 .foregroundColor(.black)
             Text(label)
-                .font(.headline) // Increased font size
+                .font(.headline)
                 .fontWeight(.bold)
         }
-        .frame(width: 110, height: 110) // Increased button size
+        .frame(width: 110, height: 110)
         .background(Color.white)
         .cornerRadius(15)
         .shadow(radius: 3)

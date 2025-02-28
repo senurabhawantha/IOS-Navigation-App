@@ -28,6 +28,11 @@ struct ScheduleView: View {
                 SearchBar(searchText: $searchText)
                     .padding(.top, 8)
 
+                // Divider below search bar
+                Divider()
+                    .background(Color.gray.opacity(0.5))
+                    .padding(.horizontal)
+
                 // Schedule List
                 ScrollView {
                     LazyVStack(spacing: 10) {
@@ -41,12 +46,28 @@ struct ScheduleView: View {
                 .cornerRadius(10)
                 .padding()
 
+                // Divider below schedule list
+                Divider()
+                    .background(Color.gray.opacity(0.5))
+                    .padding(.horizontal)
+
                 Spacer()
             }
             .navigationTitle("NIBM Schedule")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {}) {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.blue)
+                    }
+                }
+
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {}) {
+                        Image(systemName: "gearshape")
+                            .foregroundColor(.blue)
+                    }
                 }
             }
         }
@@ -65,21 +86,28 @@ struct ScheduleItemView: View {
     let scheduleItem: ScheduleItem
 
     var body: some View {
-        HStack {
-            Text(scheduleItem.batch)
-                .frame(width: 80, alignment: .leading) // Adjust width as needed
-            Spacer()
-            Text(scheduleItem.hall)
-                .frame(width: 40, alignment: .center) // Adjust width as needed
-            Spacer()
-            Text(scheduleItem.time)
-                .frame(width: 120, alignment: .trailing) // Adjust width as needed
+        VStack {
+            HStack {
+                Text(scheduleItem.batch)
+                    .frame(width: 80,height: 50, alignment: .leading)
+                Spacer()
+                Text(scheduleItem.hall)
+                    .frame(width: 30, alignment: .center)
+                Spacer()
+                Text(scheduleItem.time)
+                    .frame(width: 130, alignment: .trailing)
+            }
+            .padding(.horizontal)
+            .padding(.vertical, 8)
+            .background(Color.white)
+            .cornerRadius(5)
+            .shadow(radius: 1)
+
+            // Divider between each schedule item
+            Divider()
+                .background(Color.gray.opacity(0.3))
+                .padding(.horizontal)
         }
-        .padding(.horizontal)
-        .padding(.vertical, 8)
-        .background(Color.white)
-        .cornerRadius(5)
-        .shadow(radius: 1)
     }
 }
 
@@ -95,17 +123,14 @@ struct SearchBar: View {
                 .foregroundColor(.primary)
 
             if !searchText.isEmpty {
-                Button(action: {
-                    self.searchText = ""
-                }) {
+                Button(action: { self.searchText = "" }) {
                     Image(systemName: "xmark.circle.fill")
                         .foregroundColor(.gray)
                         .opacity(searchText.isEmpty ? 0 : 1)
                 }
             }
         }
-        .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
-        .foregroundColor(.secondary)
+        .padding()
         .background(Color(.systemGray6))
         .cornerRadius(10.0)
         .padding(.horizontal)

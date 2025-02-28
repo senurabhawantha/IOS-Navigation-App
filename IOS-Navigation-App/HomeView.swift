@@ -32,7 +32,7 @@ struct HomeView: View {
 
             // Grid Layout for Options
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing:25) {
-                HomeButton(icon: "person.2", label: "CROWD")
+                HomeButton(icon: "person.2.circle", label: "CROWD")
                 HomeButton(icon: "location", label: "MAP")
                 HomeButton(icon: "calendar", label: "EVENTS")
                 HomeButton(icon: "pencil.and.list.clipboard", label: "SCHEDULE")
@@ -89,7 +89,7 @@ struct BottomTabItem: View {
         VStack {
             Image(systemName: icon)
                 .resizable()
-                .frame(width: 25, height: 25)
+                .frame(width: 35, height: 30)
                 .foregroundColor(isActive ? .blue : .gray)
             Text(label)
                 .font(.caption)
